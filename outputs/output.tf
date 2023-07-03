@@ -4,7 +4,10 @@ output "sample1" {
 
 output "sample2" {
   value       = true
-  value = true
-}
+  }
 
 # numbers are booleans(true and false) need not be in quotes
+
+output "sample2" {
+ value = true
+}
