@@ -8,6 +8,6 @@ output "sample2" {
 
 # numbers are booleans(true and false) need not be in quotes
 
-output "sample2" {
+output "sample3" {
  value = true
 }
