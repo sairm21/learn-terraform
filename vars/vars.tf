@@ -19,3 +19,56 @@ output "sample1" {
 output "sample_ext" {
   value = "value of sample and sample1 are ${var.sample} and ${var.sample1}"
 }
+
+# variable datatypes in terraform
+# 1. string
+# 2. number
+# 3. boolean
+
+# variable types in terraform
+# 1. plain
+# 2. list
+# 3. map
+
+# plain
+variable "course" {
+  default = "DevOps training"
+}
+
+# List
+variable "courses" {
+  default = [
+    "DevOps",
+    "AWS",
+    "Ansible",
+    "Terraform"
+  ]
+}
+
+# Map
+variable "course_details" {
+  default = {
+    DevOps = {
+      name = "DevOps"
+      timming = "7:30 AM"
+      duration = "90 days"
+    }
+    AWS = {
+      name = "AWS"
+      timming = "8:30 AM"
+      duration = "90 days"
+    }
+  }
+}
+
+output "course" {
+  value = var.course
+}
+
+output "courses" {
+  value = var.courses
+}
+
+output "course_details" {
+  value = var.course_details
+}
