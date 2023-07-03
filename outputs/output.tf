@@ -3,7 +3,7 @@ output "sample1" {
 }
 
 output "sample2" {
-  value       = true
+  value       = 100
   }
 
 # numbers are booleans(true and false) need not be in quotes
