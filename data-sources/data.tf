@@ -1,4 +1,4 @@
-data "aws_ec2_spot_price" "example" {
+data "aws_ec2_instance_spot_price" "example" {
   instance_type     = "t3.medium"
   availability_zone = "us-west-2a"
 
@@ -9,9 +9,5 @@ data "aws_ec2_spot_price" "example" {
 }
 
 output "price" {
-  value = data.aws_ec2_spot_price.example.spot_price
-}
-
-output "price1" {
-  value = data.aws_ec2_spot_price.example.id
+  value = data.aws_ec2_instance_spot_price.example.spot_price
 }
