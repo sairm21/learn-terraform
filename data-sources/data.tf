@@ -68,5 +68,5 @@ data "aws_pricing_product" "example" {
 }
 
 output "instance" {
-  value = data.aws_pricing_product.example
+  value = data.aws_pricing_product.example.result
 }
