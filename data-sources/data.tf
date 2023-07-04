@@ -12,6 +12,6 @@ output "price" {
   value = data.aws_ec2_instance_spot_price.example.spot_price
 }
 
-output "price" {
+output "price1" {
   value = data.aws_ec2_instance_spot_price.example.id
 }
