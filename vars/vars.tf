@@ -72,3 +72,9 @@ output "courses" {
 output "course_details" {
   value = var.course_details["AWS"]
 }
+
+variable "env" {}
+
+output "env" {
+  value = var.env
+}
