@@ -7,10 +7,10 @@ data "aws_ec2_spot_price" "example" {
     values = ["Linux/UNIX"]
   }
 }
-#
-#output "price" {
-#  value = data.aws_ec2_spot_price.example.instance_type
-#}
+
+output "price" {
+  value = data.aws_ec2_spot_price.example.instance_type
+}
 
 #data "aws_ec2_instance_spot_price" "example1" {
 #  instance_type     = "t3.medium"
