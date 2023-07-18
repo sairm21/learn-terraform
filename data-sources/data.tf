@@ -1,6 +1,20 @@
-#data "aws_ec2_spot_price" "example" {
+data "aws_ec2_spot_price" "example" {
+  instance_type     = "t3.medium"
+  availability_zone = "us-east-1a"
+
+  filter {
+    name   = "product-description"
+    values = ["Linux/UNIX"]
+  }
+}
+#
+#output "price" {
+#  value = data.aws_ec2_spot_price.example.instance_type
+#}
+
+#data "aws_ec2_instance_spot_price" "example1" {
 #  instance_type     = "t3.medium"
-#  availability_zone = "us-east-1"
+#  availability_zone = "us-west-2a"
 #
 #  filter {
 #    name   = "product-description"
@@ -8,23 +22,9 @@
 #  }
 #}
 #
-#output "price" {
-#  value = data.aws_ec2_spot_price.example.instance_type
+#output "price1" {
+#  value = data.aws_ec2_instance_spot_price.example1.instance_type
 #}
-
-data "aws_ec2_instance_spot_price" "example1" {
-  instance_type     = "t3.medium"
-  availability_zone = "us-west-2a"
-
-  filter {
-    name   = "product-description"
-    values = ["Linux/UNIX"]
-  }
-}
-
-output "price1" {
-  value = data.aws_ec2_instance_spot_price.example1.instance_type
-}
 
 
 data "aws_security_group" "selected" {
@@ -39,7 +39,7 @@ output "sg1" {
   value = data.aws_security_group.selected.vpc_id
 }
 
-data "aws_pricing_product" "example" {
+data "aws_pricing_product" "example2" {
   service_code = "AmazonEC2"
 
   filters {
@@ -79,5 +79,5 @@ data "aws_pricing_product" "example" {
 }
 
 output "instance" {
-  value = data.aws_pricing_product.example.filters[2]
+  value = data.aws_pricing_product.example2.filters[2]
 }
