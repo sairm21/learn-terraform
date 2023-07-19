@@ -74,7 +74,7 @@ data "aws_ami" "example4" {
 }
 
 output "ami" {
-  value = data.aws_ami.example4.description
+  value = data.aws_ami.example4.state
 }
 
 output "ami1" {
