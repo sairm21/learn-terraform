@@ -10,7 +10,7 @@ resource "aws_instance" "web" {
   vpc_security_group_id = ["sg-07010737da7cff878"]
 
   tags = {
-    Name = hello world
+    Name = "hello world"
   }
 
   connection {
