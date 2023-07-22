@@ -23,7 +23,7 @@ resource "aws_instance" "web" {
   provisioner "remote-exec" {
     inline = [
       "sudo labauto ansible",
-      "ansible-pull -i localhost, -U https://github.com/sairm21/roboshop-ansible main.yml -e role_name=Frontend",
+      "ansible-pull -i localhost, -U https://github.com/sairm21/roboshop-ansible main.yml -e role_name=Frontend"
     ]
   }
 }
