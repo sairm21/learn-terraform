@@ -5,7 +5,7 @@ data "aws_ami" "example" {
 }
 
 resource "aws_instance" "web" {
-  ami                   = data.aws_ami.example4.id
+  ami                   = data.aws_ami.example.id
   instance_type         = "t3.micro"
   vpc_security_group_id = ["sg-07010737da7cff878"]
 
