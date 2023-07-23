@@ -29,7 +29,7 @@ variable "classes" {
 output "devops_topics" {
   value = var.classes["devops"]["topics"]
 }
-
+## lookup is used to pickup a value from a map
 output "aws_topics" {
   value = lookup(lookup(var.classes, "aws", null), "topics", "no topic so far")
 }
