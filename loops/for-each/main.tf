@@ -7,10 +7,10 @@ data "aws_ami" "example" {
 resource "aws_instance" "web" {
   for_each = var.instances
   ami           = data.aws_ami.example.id
-  instance_type = "t3.micro"
+  instance_type = lookup(each.value, "instance_type", "t3.small")
 
   tags = {
-    Name = "hello"
+    Name = each.key
   }
 }
 
@@ -27,8 +27,7 @@ variable "instances" {
     }
     cart={
       name="cart"
-      instance_type="t3.nano"
-    }
+      }
 
   }
 }
