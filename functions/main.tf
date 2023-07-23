@@ -33,3 +33,7 @@ output "devops_topics" {
 output "aws_topics" {
   value = lookup(lookup(var.classes, "aws", null), "topics", "no topic so far")
 }
+## element is used to iterate the list
+output "fruits_5" {
+  value = element(var.fruits, 5)
+}
