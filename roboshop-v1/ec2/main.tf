@@ -14,11 +14,12 @@ resource "aws_instance" "web" {
   }
 }
 resource "null_resource" "ansible_tasks" {
+  depends_on = [aws_instance.web, aws_route53_record.www]
   connection {
     type     = "ssh"
     user     = "centos"
     password = "DevOps321"
-    host     = self.public_ip
+    host     = aws_instance.web.public_ip
   }
 
   provisioner "remote-exec" {
