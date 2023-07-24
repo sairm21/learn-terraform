@@ -16,7 +16,6 @@ variable "instances" {
     Shipping={}
     RabbitMQ={}
     Payment={}
-    Dispatch={}
   }
 }
 
