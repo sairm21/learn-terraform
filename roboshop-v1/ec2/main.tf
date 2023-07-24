@@ -5,14 +5,15 @@ data "aws_ami" "roboshop" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.roboshop.id
-  instance_type = "t3.micro"
+  ami                    = data.aws_ami.roboshop.id
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.sg.id]
 
   tags = {
     Name = var.name
   }
-
+}
+resource "null_resource" "ansible_tasks" {
   connection {
     type     = "ssh"
     user     = "centos"
@@ -26,8 +27,8 @@ resource "aws_instance" "web" {
       "ansible-pull -i localhost, -U https://github.com/sairm21/roboshop-ansible Main.yml -e role_name=${var.name}"
     ]
   }
-
 }
+
 
 resource "aws_security_group" "sg" {
   name        = var.name
